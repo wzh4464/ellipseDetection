@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/zihanwu/High-quality-ellipse-detection/build",
+  "command": "/usr/bin/clang++  -I/Users/zihanwu/eigen/include -isystem /usr/local/include/opencv4 -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk -std=gnu++11 -o CMakeFiles/generateEllipseCandidatescpp.dir/generateEllipseCandidatescpp.cpp.o -c /Users/zihanwu/High-quality-ellipse-detection/generateEllipseCandidatescpp.cpp",
+  "file": "/Users/zihanwu/High-quality-ellipse-detection/generateEllipseCandidatescpp.cpp"
+}
+]

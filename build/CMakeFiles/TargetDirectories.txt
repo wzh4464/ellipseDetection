@@ -1,0 +1,5 @@
+/Users/zihanwu/High-quality-ellipse-detection/build/CMakeFiles/package.dir
+/Users/zihanwu/High-quality-ellipse-detection/build/CMakeFiles/rebuild_cache.dir
+/Users/zihanwu/High-quality-ellipse-detection/build/CMakeFiles/edit_cache.dir
+/Users/zihanwu/High-quality-ellipse-detection/build/CMakeFiles/package_source.dir
+/Users/zihanwu/High-quality-ellipse-detection/build/CMakeFiles/generateEllipseCandidatescpp.dir

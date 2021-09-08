@@ -2,7 +2,7 @@
 cmake_minimum_required(VERSION 3.1)
 
 # Define project name
-project(generateEllipseCandidatescpp)
+project(ellipseDetection)
 
 # Find OpenCV, you may need to set OpenCV_DIR variable
 # to the absolute path to the directory containing OpenCVConfig.cmake file
@@ -28,9 +28,9 @@ message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 # Declare the executable target built from your sources
-add_executable(generateEllipseCandidatescpp generateEllipseCandidatescpp.cpp)
+add_executable(ellipseDetection generateEllipseCandidatescpp.cpp)
 add_compile_options(-Wwritable-strings)
 # Link your application with OpenCV libraries
-target_link_libraries(generateEllipseCandidatescpp PRIVATE ${OpenCV_LIBS} LAPACK)
+target_link_libraries(ellipseDetection PRIVATE ${OpenCV_LIBS} LAPACK)
 
 

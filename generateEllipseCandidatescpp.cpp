@@ -2662,7 +2662,7 @@ inline double rotateAngle(double start_angle, double end_angle, int polarity)
 //输出分组groups. 每个组是一个vector<int>
 //注意：切记用完region,需要在函数外面手动释放region
 
-void groupLSs(double *lines, int line_num, int *region, int imgx, int imgy, vector<vector<int>> *groups)
+void groupLSs(double *lines, int line_num, int *region, int imgx, int imgy, vector<vector<int> > *groups)
 {
 	if (line_num == 0)
 	{
@@ -2874,7 +2874,7 @@ void groupLSs(double *lines, int line_num, int *region, int imgx, int imgy, vect
 //输出:
 //coverages: 每个组的跨度，当组内线段只有1条时，跨度为0. coverages的长度等于组的数量 = groups.size()
 //注意，coverages用前不需要申请内存，coverages用完后，需要在函数外手动释放内存，长度等于分组数量
-void calcuGroupCoverage(double *lines, int line_num, vector<vector<int>> groups, double *&coverages)
+void calcuGroupCoverage(double *lines, int line_num, vector<vector<int> > groups, double *&coverages)
 {
 	int groups_num = groups.size();
 	int temp;
@@ -4433,7 +4433,7 @@ inline double d_rosin(double *param, double x, double y)
 //group_inliers_num:记录着各个组的支持内点数量的数组，实时更新，初始时为0
 //输出
 //ellipara
-bool calcEllipseParametersAndValidate(double *lines, int line_num, vector<vector<int>> *groups, int first_group_ind, int second_group_ind, double *fit_matrix1, double *fit_matrix2, image_double angles, double distance_tolerance, unsigned int *group_inliers_num, point5d *ellipara)
+bool calcEllipseParametersAndValidate(double *lines, int line_num, vector<vector<int> > *groups, int first_group_ind, int second_group_ind, double *fit_matrix1, double *fit_matrix2, image_double angles, double distance_tolerance, unsigned int *group_inliers_num, point5d *ellipara)
 {
 	double S[36];								 //拟合矩阵S
 	double Coefficients[6] = {0, 0, 0, 0, 0, 0}; // ax^2 + bxy + cy^2 + dx + ey + f = 0
@@ -4722,7 +4722,7 @@ bool calcEllipseParametersAndValidate(double *lines, int line_num, vector<vector
 //返回值 PairedGroupList* list 返回的是初始椭圆集合的数组，长度list->length.
 //切记，该内存在函数内申请，用完该函数记得释放内存，调用函数freePairedSegmentList()进行释放
 
-PairGroupList *getValidInitialEllipseSet(double *lines, int line_num, vector<vector<int>> *groups, double *coverages, image_double angles, double distance_tolerance, int specified_polarity)
+PairGroupList *getValidInitialEllipseSet(double *lines, int line_num, vector<vector<int> > *groups, double *coverages, image_double angles, double distance_tolerance, int specified_polarity)
 {
 	//加速计算
 	//int* lineInliersIndex = (int*)malloc(sizeof(int)*line_num);//如果第i条线段找到了内点，则记录其索引为j = length(supportInliers),即supportInliers.at(j)存着该线段的支持内点,没找到内点的线段对应索引为初始值-1.
@@ -5123,7 +5123,7 @@ void generateEllipseCandidatesCpp(Mat src, const int edge_process_select, const 
 
 	int n; // number of lines
 
-	vector<vector<int>> groups;
+	vector<vector<int> > groups;
 	double *coverages;
 	int *reg;
 	int reg_x;

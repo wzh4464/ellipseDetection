@@ -7,7 +7,8 @@ project(ellipseDetection)
 # Find OpenCV, you may need to set OpenCV_DIR variable
 # to the absolute path to the directory containing OpenCVConfig.cmake file
 # via the command line or GUI
-find_package(OpenCV REQUIRED)
+# set(OpenCV_DIR )
+find_package(OpenCV 4.5.3 REQUIRED)
 find_package(LAPACK)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
@@ -28,7 +29,7 @@ message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
 
 # Declare the executable target built from your sources
-add_executable(ellipseDetection generateEllipseCandidatescpp.cpp)
+add_executable(ellipseDetection main.cpp Find_arcs.hpp Find_arcs.cpp)
 add_compile_options(-Wwritable-strings)
 # Link your application with OpenCV libraries
 target_link_libraries(ellipseDetection PRIVATE ${OpenCV_LIBS} LAPACK)

@@ -18,20 +18,22 @@ using namespace std;
 int main(int argc, char **argv)
 {
     cout << "Built with OpenCV " << CV_VERSION << endl;
-	CommandLineParser parser(argc, argv, "{@input | ../pics/666.jpg | input image}");
+	CommandLineParser parser(argc, argv, "{@input | /Users/zihanwu/ellipseDetectionplus/pics/666.jpg | input image}");
     string filename;
 	filename = parser.get<String>("@input");
 	cout << filename << endl;
 	Mat src = imread(samples::findFile(parser.get<String>("@input")), IMREAD_COLOR);
 
-    Arc arc1;
-    cout << arc1.num << arc1.
+    Arc arc1( 1 );
+    cout << arc1.getFlag() << endl;
 
-	// Mat gray;
-	// cvtColor(src,gray,COLOR_BGR2GRAY);
-    // const char* source_window = "Source";
-    // namedWindow( source_window );
-    // imshow(source_window,gray);
+    
+
+	Mat gray;
+	cvtColor(src,gray,COLOR_BGR2GRAY);
+    const char* source_window = "Source";
+    namedWindow( source_window );
+    imshow(source_window,gray);
     while (waitKey(0) != 'q'){
 
     }

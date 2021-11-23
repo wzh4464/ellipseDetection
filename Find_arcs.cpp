@@ -1,21 +1,32 @@
 #include "Find_arcs.hpp"
 
-Arc::Arc()
+Arc::Arc(int _flag)
 {
-    num = 0;
-    flag = 0;
-    data = NULL;
+    this->flag = _flag;
 }
 
-void Arc::add(int x, int y)
+int Arc::getFlag()
 {
-    Point2i* p = new Point2i(x, y);
-    data->insert(data->end(),p);
-    num ++;
+    return flag;
 }
 
-void Arc::add(Point2i* pt)
+void Arc::setFlag( int _flag )
 {
-    data->insert(data->end(),pt);
-    num ++;
+    this->flag = _flag;
 }
+
+int Arc::size()
+{
+    return points.size();
+}
+
+void Arc_set::append(Arc * arc)
+{
+    data->insert(data->end(),arc);
+}
+
+// void Arc::add(Point2i* pt)
+// {
+//     data->insert(data->end(),pt);
+//     num ++;
+// }

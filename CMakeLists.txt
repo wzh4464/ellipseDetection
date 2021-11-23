@@ -27,6 +27,7 @@ message(STATUS "    config: ${OpenCV_DIR}")
 message(STATUS "    version: ${OpenCV_VERSION}")
 message(STATUS "    libraries: ${OpenCV_LIBS}")
 message(STATUS "    include path: ${OpenCV_INCLUDE_DIRS}")
+# message(STATUS ${LDFLAGS})
 
 # Declare the executable target built from your sources
 add_executable(ellipseDetection main.cpp Find_arcs.hpp Find_arcs.cpp)

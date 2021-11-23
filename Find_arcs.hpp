@@ -7,20 +7,30 @@
 using namespace cv;
 
 class Arc {
-    void add(int x, int y);
-    void add(Point2i * pt);
-    public:
-    Arc();
+    private:
+    // memeber
     int flag;
-    int num;
-    std::vector <Point2i*>* data;
+    
+    public:
+    // member
+    std::vector<Point2i*> points;
+    
+
+    // function
+    Arc (int);
+    int getFlag();
+    void setFlag(int);
+    int size();
+    Point2i* & operator[](int i){
+       return points[i];
+    } // [] reference
 };
 
 class Arc_set {
     private:
-    int set_num;
+
     public:
-    int gset_num();
-    void add_num();
+    void append(Arc *);
+    void size();
     std::vector <Arc *> * data;
 };

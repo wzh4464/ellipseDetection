@@ -8,7 +8,7 @@ project(ellipseDetection)
 # to the absolute path to the directory containing OpenCVConfig.cmake file
 # via the command line or GUI
 # set(OpenCV_DIR )
-find_package(OpenCV 4.5.3 REQUIRED)
+find_package(OpenCV 4.5.4 REQUIRED)
 find_package(LAPACK)
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})

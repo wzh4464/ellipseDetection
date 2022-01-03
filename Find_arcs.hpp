@@ -5,7 +5,7 @@
 #include <opencv2/opencv.hpp>
 
 using namespace cv;
-
+using namespace std;
 class Arc {
     private:
     // memeber
@@ -14,7 +14,7 @@ class Arc {
     public:
     // member
     std::vector<Point2i*> points;
-    
+
 
     // function
     Arc (int);
@@ -28,9 +28,22 @@ class Arc {
 
 class Arc_set {
     private:
-
+    double scale = 0.5;		  /* Scale the image by Gaussian filter to 'scale'. */
+	/*double sigma_scale = 0.6; Sigma for Gaussian filter is computed as
+                                sigma = sigma_scale/scale.                    */
+	double quant = 2.0;		  /* Bound to the quantization error on the
+                                gradient norm.                                */
+	double ang_th = 22.5;	  /* Gradient angle tolerance in degrees.           */
+	double log_eps = 0.0;	  /* Detection threshold: -log10(NFA) > log_eps     */
+	double density_th = 0.7;  /* Minimal density of region point2is in rectangle. */
+	int n_bins = 1024;		  /* Number of bins in pseudo-ordering of gradient
+                               modulus. */
     public:
+    Arc_set() {};
     void append(Arc *);
     void size();
     std::vector <Arc *> * data;
+    void generateArcSet(Mat &src); // generate all arcs
 };
+
+// class 

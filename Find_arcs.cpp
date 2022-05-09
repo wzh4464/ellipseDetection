@@ -1,8 +1,8 @@
 /**
  * @Author: Your name
  * @Date:   2021-11-22 14:55:36
- * @Last Modified by:   Your name
- * @Last Modified time: 2022-04-19 12:37:12
+ * @Last Modified by:   WU Zihan
+ * @Last Modified time: 2022-05-09 20:43:52
  */
 #include "Find_arcs.hpp"
 
@@ -72,8 +72,8 @@ void Arc_set::generateArcSet(cv::Mat &src /*source file image*/)
     int scale = 1;
     int delta = 0;
     int ddepth = CV_16S;
+
     /// Gradient X
-    
     Sobel(gray, channels[1], ddepth, 1, 0, ksize, scale, delta, cv::BORDER_DEFAULT);
 
     /// Gradient Y
@@ -83,14 +83,12 @@ void Arc_set::generateArcSet(cv::Mat &src /*source file image*/)
     cv::merge(channels, rotated_grad);
     static Debug& debugger = Debug::getInstance();
 
-
-
-
     cv::Mat grad_abs(gray.rows,gray.cols,CV_16S);
 
     
     for (auto ita = channels[0].begin<short>(), enda = channels[0].end<short>(), itb = channels[1].begin<short>(), itc = grad_abs.begin<short>(); ita != enda; ++ita, ++itb, ++itc){
         auto temp = (short)sqrt((int)*ita * (int)*ita + (int)*itb * (int)*itb);
+        // temp is calculated gradient
         if(temp < rho){
             *itc = NAN;
         }
@@ -103,7 +101,7 @@ void Arc_set::generateArcSet(cv::Mat &src /*source file image*/)
     // debugger.printmn(gray,200,210);
     // debugger.printshort(channels[0],200,210);
     // debugger.printshort(channels[1],200,210);
-    debugger.printshort(grad_abs,200,210);
+    debugger.print<short>(grad_abs,200,210);
 
     /// Abs to show
     // convertScaleAbs(gradient[0], gradient[0]);
@@ -115,6 +113,7 @@ void Arc_set::generateArcSet(cv::Mat &src /*source file image*/)
     std::cout << "channels[0] size:" <<channels[0].size << std::endl;
     std::cout << "channels[1] size:" <<channels[1].size << std::endl;
     // gradient[0].size.p
+    /*
 	const char* window_1 = "1";
     const char* window_2 = "2";
     const char* window_3 = "3";
@@ -129,6 +128,7 @@ void Arc_set::generateArcSet(cv::Mat &src /*source file image*/)
     b = 100;
     th = 0;
     
+    
     namedWindow( window_1, WINDOW_AUTOSIZE );
     createTrackbar (trackx,window_1,&x,gray.cols,
 					onChangeTrackBar);
@@ -141,9 +141,12 @@ void Arc_set::generateArcSet(cv::Mat &src /*source file image*/)
     createTrackbar (trackth,window_1,&th,360,
 					onChangeTrackBar);
     onChangeTrackBar(0,0);
+    
     while (cv::waitKey(0) != 'q')
     {
 
     }
     return;
+    */
+
 }

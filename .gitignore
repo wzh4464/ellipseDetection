@@ -31,6 +31,14 @@
 *.out
 *.app
 
-build
+build/**
 debug
 .DS_Store
+.vscode/**
+*.bin
+CMakeFiles/**
+.cache/**
+.ipybn_checkpoints/**
+*.json
+cmake_output/**
+dist/**

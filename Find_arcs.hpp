@@ -1,19 +1,20 @@
 #pragma once
-
+#include <math.h>
 #include <vector>
-#include <stdio.h>
+// #include <stdio.h>
 #include <opencv2/opencv.hpp>
-
+#include <string>
+#include "Debug.hpp"
 using namespace cv;
-using namespace std;
+// using namespace std;
 class Arc {
     private:
     // memeber
-    int flag;
+    int flag; // other words, name
     
     public:
     // member
-    std::vector<Point2i*> points;
+    std::vector<cv::Point2i*> points;
 
 
     // function
@@ -21,7 +22,7 @@ class Arc {
     int getFlag();
     void setFlag(int);
     int size();
-    Point2i* & operator[](int i){
+    cv::Point2i* & operator[](int i){
        return points[i];
     } // [] reference
 };
@@ -41,9 +42,17 @@ class Arc_set {
     public:
     Arc_set() {};
     void append(Arc *);
-    void size();
+    int size();
     std::vector <Arc *> * data;
-    void generateArcSet(Mat &src); // generate all arcs
+    void generateArcSet(cv::Mat &src); // generate all arcs
+    /**
+     * @brief generate all arcs from source image
+     * 1. Guass blur 
+     * 2. gray
+     * 3. caluculate gradient
+     * 4. get rotated gradient map
+     * 
+     */
 };
 
 // class 

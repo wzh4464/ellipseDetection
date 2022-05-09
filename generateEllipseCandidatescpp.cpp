@@ -136,6 +136,7 @@ typedef struct image_double_s
 	int xsize, ysize;
 } * image_double;
 
+
 //==================================================================================================
 //=============================miscellaneous functions==============================================
 inline double min(double v1, double v2)
@@ -5192,7 +5193,7 @@ void generateEllipseCandidatesCpp(Mat src, const int edge_process_select, const 
 	// cout << "groups[0].size = " << *(groups[0].data()) << endl;
 }
 
-int main(int argc, char **argv)
+int semimain(int argc, char **argv)
 {
 	cout << "Built with OpenCV " << CV_VERSION << endl;
 	CommandLineParser parser(argc, argv, "{@input | 666 | input image}");
